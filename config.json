@@ -1,8 +1,8 @@
 {
 	//Discord settings 
 	"IsDebug": false,
-	"DebugGuilId": "1239252567716925520",
-	"Token": "NzkxODg5MjA1ODczNzM3Nzc4.GAnXJ2.U2s2C0SzN89w1q2X26kQZbYwzET2sZTRzhC_Xo",
+	"DebugGuilId": "",
+	"Token": "",
 	
 	//Database Settings
 	"SqlIP": "192.168.1.2",
