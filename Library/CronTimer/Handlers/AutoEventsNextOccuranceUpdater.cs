@@ -17,13 +17,15 @@ namespace BimBot.Library.CronTimer.Handlers
                 {
                     try
                     {
-                        DateTime nextOccur = (DateTime)GetNextOccurrence(e.CronTimerFormat, DateTime.Now);
+                        DateTime nextOccur = GetNextOccurrence(e.CronTimerFormat, DateTime.UtcNow)
+                            ?? throw new Exception("Invalid cron expression or no next occurrence.");
 
-                        e.NextOccurance = Convert.ToInt32(nextOccur.Subtract(DateTime.Now).TotalSeconds);
+                        // Store the difference in seconds until the next occurrence
+                        e.NextOccurance = Convert.ToInt32((nextOccur - DateTime.UtcNow).TotalSeconds);
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine(ex.Message);
+                        Console.WriteLine($"Error processing event {e.ID}: {ex.Message}");
                     }
                 }
 
@@ -33,9 +35,17 @@ namespace BimBot.Library.CronTimer.Handlers
 
         public static DateTime? GetNextOccurrence(string cronExpression, DateTime fromTime)
         {
-            CronExpression expression = new CronExpression(cronExpression);
-
-            return expression.GetNextValidTimeAfter(fromTime)?.UtcDateTime;
+            try
+            {
+                // Ensure the cron expression is valid
+                var expression = new CronExpression(cronExpression);
+                return expression.GetNextValidTimeAfter(fromTime)?.UtcDateTime;
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine($"Invalid cron expression: {ex.Message}");
+                return null;
+            }
         }
     }
 }
