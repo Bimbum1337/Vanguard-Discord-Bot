@@ -1,0 +1,37 @@
+{
+	//Discord settings 
+	"IsDebug": false,
+	"DebugGuilId": "1239252567716925520",
+	"Token": "NzkxODg5MjA1ODczNzM3Nzc4.GAnXJ2.U2s2C0SzN89w1q2X26kQZbYwzET2sZTRzhC_Xo",
+	
+	//Database Settings
+	"SqlIP": "192.168.1.2",
+	"SqlPort": 1433,
+	"Username": "sa",
+	"Password": "sql@123",
+	"AccountDB": "SILKROAD_R_ACCOUNT",
+	"ShardDB": "SILKROAD_R_SHARD",
+	"LogDB": "SILKROAD_R_LOG",
+	
+	//General settings
+	"GreatPlayersOnJoin": true,
+	"GreatPlayersChannelName": "👋┇welcome", //Leaving blank will select default channel
+	"PartingPlayersOnLeave": true,
+	"PartingPlayersChannelName": "👋┇welcome", //Leaving blank will select default channel
+	
+	//Invite Logger
+	"AllowInviteLogger": true,
+	"InviteLoggerChannelName": "🏴┇invite-track", //Leaving blank will select default channel
+	
+	//Suggestions
+	"AllowSuggestionsReactions": true,
+	"SuggestionsChannelName": "👍┇suggestions",
+	"SuggestionsReactionsEmotes": "<:global_green:1152126878916825099>,<:hunter:1130387406214942810>,<a:kekwholup:987816995615539290>",
+	
+	//Ticket System
+	"AllowTicketSystem": true,
+	"TicketSystemChannelName": "🎫┇create-a-ticket",
+	
+	//AUTO EVENTS
+	"JackPotCronTime": "0 0 20 * * ?" //Every day at 8:00 PM
+}
